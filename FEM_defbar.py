@@ -1,8 +1,7 @@
-import numpy as np
-import matplotlib.pyplot as plt
-import time
-
 def bar(num_elems):
+
+# F.E. Method - Displacement
+
     L = 20.0
     YoungsModulus = 20
     Area = 25
@@ -25,6 +24,7 @@ def bar(num_elems):
         for i in [0,1]:
             K = np.delete(K, dof, axis=i)
     displacement = np.linalg.solve(K, F)
-
+    #print displacement
     return displacement
-#bar(4)
+
+bar(6)

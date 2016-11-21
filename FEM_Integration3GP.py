@@ -1,8 +1,5 @@
-import numpy as np
-import matplotlib.pyplot as plt
-import time
-
 class Integration3GP:
+# Gaussian Quadrature for 3 points
     def __init___(self):
         self.NumberOfGP = 3
         self.NumberOfGPWeight = 5/9

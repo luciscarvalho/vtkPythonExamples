@@ -1,7 +1,3 @@
-import numpy as np
-import matplotlib.pyplot as plt
-import time
-
 class Element1D:
     def __init__(self, E, A, nodes):
         self.E = E
@@ -9,6 +5,7 @@ class Element1D:
         self.nodes = nodes
         self.integrationType = Integration2GP()
     def GetB2Node(self, xi):
+# Limits of shape functions
       return np.matrix([-0.5, 0.5])
     def GetN2Node(self, xi):
         return 0.5*np.matrix([1-xi, xi+1])

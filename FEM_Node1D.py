@@ -1,8 +1,5 @@
-import numpy as np
-import matplotlib.pyplot as plt
-import time
-
 class Node1D:
     def __init__(self, x):
+# Axis x and u is axis Y, displacement
         self.x = x
         self.u = 0
