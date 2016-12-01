@@ -1,7 +1,9 @@
+import numpy as np
+from FEM_Node1D import Node1D
+from FEM_Element1D import Element1D
+
 def bar(num_elems):
-
-# F.E. Method - Displacement
-
+    # F.E. Method - Displacement
     L = 20.0
     YoungsModulus = 20
     Area = 25
@@ -18,13 +20,14 @@ def bar(num_elems):
     for i in range(num_elems):
         K[i:i+2, i:i+2] += list_elements[i].GetKe()
         F[i:i+2] += list_elements[i].GetFe(4.0)
-        restrained_DOF = [0]
+
+    restrained_DOF = [0]
     for dof in restrained_DOF:
         F = np.delete(F, dof, axis=0)
         for i in [0,1]:
             K = np.delete(K, dof, axis=i)
-    displacement = np.linalg.solve(K, F)
-    #print displacement
-    return displacement
 
-bar(6)
+    displacement = np.linalg.solve(K, F)
+    #return displacement
+
+    return F
