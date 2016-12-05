@@ -1,13 +1,14 @@
 import numpy as np
 
-def displ_i(num_elems):
+def displ_i(t):
     # Analytical Method - Displacement
 
     L = 20.0
     E = 20.0
     A = 25.0
-    P = 4.0
+    P = 8.0*t**0.5
     list_disp = []
+    num_elems = 9
     for i in range(1, num_elems+1):
         u = (P/(E*A))*(L*(i*L/num_elems)-(0.5)*(i*L/num_elems)**2)
         list_disp.append(u)

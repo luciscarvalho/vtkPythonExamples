@@ -22,6 +22,7 @@ class Element1D:
             B = self.GetB2Node(xi)
             Ke += self.E* self.A * B.T*B*wi*2/Le
         return Ke
+
     def GetFe(self, P):
         Fe = np.array([[0.0],[0.0]])
         Le = self.nodes[1].x-self.nodes[0].x
