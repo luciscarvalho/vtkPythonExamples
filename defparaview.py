@@ -1,7 +1,7 @@
 import time
 import vtk
 import numpy as np
-from FEM_defdispl_i import displ_i
+from defdispl_i import displ_i
 
 def paraview(displacement,t):
     L = 20.0

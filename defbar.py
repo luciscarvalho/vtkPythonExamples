@@ -1,5 +1,5 @@
 import numpy as np
-from FEM_Node1D import Node1D
+from Node1D import Node1D
 from Element1D import Element1D
 
 def bar(t):
