@@ -3,17 +3,21 @@ from Integration2GP import Integration2GP
 
 
 class Element1D:
+    """# E, A, nodes, Ke, Fe, shape functions"""
     def __init__(self, E, A, nodes):
+        """Axis x and u is axis Y, displacement"""
         self.E = E
         self.A = A
         self.nodes = nodes
         self.integrationType = Integration2GP()
     def GetB2Node(self, xi):
-        # Limits of shape functions
+        """ Limits of shape functions"""
         return np.matrix([-0.5, 0.5])
     def GetN2Node(self, xi):
+        """ Shape Function """
         return 0.5*np.matrix([1-xi, xi+1])
     def GetKe(self):
+        """Local Young's Modulus """
         Ke = [[0,0],[0,0]]
         Le = self.nodes[1].x - self.nodes[0].x
         for i in range(self.integrationType.NumberOfGP):
@@ -24,6 +28,7 @@ class Element1D:
         return Ke
 
     def GetFe(self, P):
+        """Local Force """
         Fe = np.array([[0.0],[0.0]])
         Le = self.nodes[1].x-self.nodes[0].x
         for i in range(self.integrationType.NumberOfGP):

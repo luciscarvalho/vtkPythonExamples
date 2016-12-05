@@ -3,7 +3,7 @@ from Node1D import Node1D
 from Element1D import Element1D
 
 def bar(t):
-    # F.E. Method - Displacement
+    """Assembly Local to Global Matrix, Displacement (F.E. Method - Displacement)"""
     num_elems = 9
     L = 20.0
     YoungsModulus = 20

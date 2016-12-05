@@ -1,7 +1,7 @@
 import numpy as np
 
 def displ_i(t):
-    # Analytical Method - Displacement
+    """Displacement (Analytical Method)"""
 
     L = 20.0
     E = 20.0

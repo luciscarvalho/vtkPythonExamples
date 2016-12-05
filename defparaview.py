@@ -4,6 +4,8 @@ import numpy as np
 from defdispl_i import displ_i
 
 def paraview(displacement,t):
+    """Paraview for FEM Displacement, clock and create files vtu"""
+
     L = 20.0
     points = vtk.vtkPoints()
     myline = vtk.vtkLine()
