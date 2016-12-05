@@ -1,5 +1,5 @@
 import numpy as np
-from FEM_Integration2GP import Integration2GP
+from Integration2GP import Integration2GP
 
 
 class Element1D:

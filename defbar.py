@@ -1,6 +1,6 @@
 import numpy as np
 from FEM_Node1D import Node1D
-from FEM_Element1D import Element1D
+from Element1D import Element1D
 
 def bar(t):
     # F.E. Method - Displacement
