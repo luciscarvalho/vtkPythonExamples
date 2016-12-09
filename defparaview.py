@@ -1,7 +1,9 @@
 import time
 import vtk
 import numpy as np
+import paraview
 from defdispl_i import displ_i
+
 
 def paraview(displacement,t):
     """Paraview for FEM Displacement, clock and create files vtu"""
@@ -34,12 +36,17 @@ def paraview(displacement,t):
     grid.SetCells(vtk.VTK_LINE, mesh)
     grid.GetPointData().SetScalars(array)
 
-    #bar(i+1)
-    #displ_i(i+1)
 
     writer = vtk.vtkXMLUnstructuredGridWriter()
     writer.SetFileName("Group_Elements"+`t`+".vtu")
     writer.SetInputData(grid)
+    writer.SetTimeStep(t*7200)
     writer.Write()
 
+    
+
+#    bar(i+1)
+#    displ_i(i+1)
+
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~teste
     return displ_list
