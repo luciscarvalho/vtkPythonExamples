@@ -1,5 +1,4 @@
 from xml.dom import minidom
-#import os
 
 
 doc = minidom.Document()

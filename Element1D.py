@@ -11,13 +11,13 @@ class Element1D:
         self.nodes = nodes
         self.integrationType = Integration2GP()
     def GetB2Node(self, xi):
-        """ Limits of shape functions"""
+        """ Derivate of shape functions"""
         return np.matrix([-0.5, 0.5])
     def GetN2Node(self, xi):
         """ Shape Function """
         return 0.5*np.matrix([1-xi, xi+1])
     def GetKe(self):
-        """Local Young's Modulus """
+        """Local Stiffness Matrix """
         Ke = [[0,0],[0,0]]
         Le = self.nodes[1].x - self.nodes[0].x
         for i in range(self.integrationType.NumberOfGP):
