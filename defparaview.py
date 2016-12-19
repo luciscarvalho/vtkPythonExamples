@@ -1,12 +1,8 @@
-import time
 import vtk
 import numpy as np
-import paraview
-from defdispl_i import displ_i
-
 
 def paraview(displacement,t):
-    """Paraview for FEM Displacement, clock and create files vtu"""
+    """ Paraview for FEM Displacement, clock and create files vtu """
 
     L = 20.0
     points = vtk.vtkPoints()
@@ -24,7 +20,7 @@ def paraview(displacement,t):
         myline.GetPointIds().SetId(0,i)
         myline.GetPointIds().SetId(1,i+1)
         mesh.InsertNextCell(myline)
-        #print mesh
+
 
     array = vtk.vtkDoubleArray()
     array.SetName("Displacement")
@@ -43,10 +39,4 @@ def paraview(displacement,t):
     writer.SetTimeStep(t*7200)
     writer.Write()
 
-    
-
-#    bar(i+1)
-#    displ_i(i+1)
-
-#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~teste
     return displ_list

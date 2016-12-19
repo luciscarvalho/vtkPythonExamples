@@ -1,6 +1,6 @@
 import numpy as np
-from Node1D import Node1D
-from Element1D import Element1D
+from Nodes import Node1D
+from Elements import Element1D
 
 def bar(t):
     """Assembly Local to Global Matrix, Displacement (F.E. Method - Displacement)"""

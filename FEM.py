@@ -3,7 +3,7 @@ from defdispl_i import displ_i
 from defparaview import paraview
 
 
-t = num_repeats = 10
+t = num_repeats = 5
 for i in range(t):
     displacement = bar(i)
     #displacement = displ_i(i)

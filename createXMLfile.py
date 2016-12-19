@@ -1,6 +1,6 @@
 from xml.dom import minidom
 
-
+"""This file creates a PVD file for paraview with TimeSteps and Names for each file"""
 doc = minidom.Document()
 
 nd_line = doc.createElement('VTKFile')
@@ -10,7 +10,7 @@ doc.appendChild(nd_line)
 rd_line = doc.createElement('Collection')
 nd_line.appendChild(rd_line)
 
-t = num_repeats = 10
+t = num_repeats = 5
 for i in range(t):
     th_line =doc.createElement('DataSet')
     th_line.setAttribute('timestep', `i*720`)
@@ -23,71 +23,3 @@ save_path_file = "teste1.pvd"
 
 with open(save_path_file, "w") as f:
     f.write(nd_line_str)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-"""
-PRIMEIRA TENTATIVA
-
-import numpy as np
-import time
-import vtk
-import xml.etree.ElementTree as xml
-
-from defbar import bar
-from defdispl_i import displ_i
-from defparaview import paraview
-
-
-t = num_repeats = 10
-for i in range(t):
-    displacement = bar(i)
-    #displacement = displ_i(i+1)
-    paraview(displacement,i)
-
-#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~Create PVD File
-    root = xml.Element("VTKFile")
-    appt = xml.Element("Collection")
-    root.append(appt)
-
-    xml.SubElement(appt,"DataSet",file="Group_Elements"+`t`+".vtu", timestep= "`t`*720").text = ""
-
-tree = xml.ElementTree(root)
-tree.write("teste1.pvd")
-"""
