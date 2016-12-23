@@ -1,4 +1,5 @@
 import numpy as np
+
 from IntegrationGP import Integration2GP
 
 class Element1D(object):
@@ -18,7 +19,8 @@ class Element1D(object):
     def GetKe(self):
         """ Local Stiffness Matrix """
         Ke = [[0,0],[0,0]]
-        Le = self.nodes[1].x - self.nodes[0].x
+        #Le = self.nodes[1].x - self.nodes[0].x
+        Le = 20
         for i in range(self.integrationType.NumberOfGP):
             xi = self.integrationType.GetIntegrationPoints()[i]
             wi = self.integrationType.GetIntegrationWeights()[i]
@@ -29,10 +31,11 @@ class Element1D(object):
     def GetFe(self, P):
         """ Local Force """
         Fe = np.array([[0.0],[0.0]])
-        Le = self.nodes[1].x-self.nodes[0].x
+        #Le = self.nodes[1].x - self.nodes[0].x
+        Le = 20
         for i in range(self.integrationType.NumberOfGP):
             xi = self.integrationType.GetIntegrationPoints()[i]
             wi = self.integrationType.GetIntegrationWeights()[i]
-            N =  self.GetN2Node(xi)
+            N = self.GetN2Node(xi)
             Fe += wi*N.T*P*Le/2
         return Fe

@@ -2,9 +2,8 @@ import numpy as np
 from Nodes import Node1D
 from Elements import Element1D
 
-def bar(t):
+def bar(t, num_elems):
     """Assembly Local to Global Matrix, Displacement (F.E. Method - Displacement)"""
-    num_elems = 9
     L = 20.0
     YoungsModulus = 20
     Area = 25
@@ -12,6 +11,7 @@ def bar(t):
     list_elements = []
     K = np.zeros((num_elems+1,num_elems+1))
     F = np.zeros((num_elems+1,1))
+    P = 8.0*t**0.5
 
     for i in range(num_elems+1):
         node = Node1D(i*L/num_elems)
@@ -32,5 +32,8 @@ def bar(t):
 
 
     displacement = np.linalg.solve(K, F)
+
+    print K
+    print displacement
 
     return displacement
